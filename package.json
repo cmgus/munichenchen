@@ -15,6 +15,7 @@
     "apps/*"
   ],
   "devDependencies": {
+    "@flydotio/dockerfile": "^0.2.16",
     "turbo": "^1.10.7"
   }
 }
