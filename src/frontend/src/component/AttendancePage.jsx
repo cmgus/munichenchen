@@ -1,36 +1,9 @@
 import { useState } from "react";
 import { Button, Container, FormSelect } from "react-bootstrap";
-import { BrowserQRCodeReader } from "@zxing/library";
 export const AttendancePage = () => {
   const [result, setResult] = useState("nonr");
-  let codeReader = new BrowserQRCodeReader();
-  let stop = null;
   const [devices, setDevices] = useState([]);
 
-  useState(() => {
-    navigator.mediaDevices
-      ?.getUserMedia({ audio: false, video: { facing: "environment" } })
-      .then((d) => console.log(d))
-      .catch((er) => console.log(er));
-  }, []);
-  const decodeOnce = (selectedDeviceId) => {
-    if (!codeReader) return;
-    codeReader
-      .decodeFromInputVideoDevice(selectedDeviceId, "video")
-      .then((result) => {
-        console.log(result);
-        setResult(result.text);
-        // document.getElementById("result").textContent = result.text;
-      })
-      .catch((err) => {
-        console.error(err);
-        setResult(err);
-        // document.getElementById("result").textContent = err;
-      });
-  };
-  const stopVideo = () => {
-    stop.stop();
-  };
   return (
     <Container>
       <header className="attendance-page__header">
