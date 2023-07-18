@@ -5,6 +5,7 @@
   "main": "index.js",
   "scripts": {
     "dev": "turbo run dev",
+    "dev:frontend": "turbo run dev --filter frontend",
     "build": "turbo run build",
     "start": "node apps/api/dist/main.js"
   },
@@ -15,7 +16,7 @@
     "apps/*"
   ],
   "devDependencies": {
-    "@flydotio/dockerfile": "^0.2.16",
+    "@flydotio/dockerfile": "^0.3.3",
     "turbo": "^1.10.7"
   }
 }
